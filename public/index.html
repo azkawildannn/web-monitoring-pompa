@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Monitoring Pompa IoT</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>Monitoring Pompa IoT</h1>
+    </header>
+
+    <div class="status-row">
+        <div class="status-box">
+            <span id="mqttStatus">Disconnected</span>
+        </div>
+        <div class="theme-toggle" id="themeToggle" data-theme="light" role="group" aria-label="Theme switch">
+            <span class="theme-toggle-track" aria-hidden="true"></span>
+            <button type="button" class="theme-light active" aria-label="Light theme" title="Light">☀️</button>
+            <button type="button" class="theme-dark" aria-label="Dark theme" title="Dark">🌙</button>
+        </div>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Suhu</h3>
+            <p id="suhu">0 °C</p>
+        </div>
+
+        <div class="card">
+            <h3>Kelembapan</h3>
+            <p id="kelembapan">0 %</p>
+        </div>
+
+        <div class="card">
+            <h3>Status Pompa</h3>
+            <p id="pompa">MATI</p>
+        </div>
+
+        <div class="card">
+            <h3>Mode</h3>
+            <p id="mode">AUTO</p>
+        </div>
+
+    </div>
+
+    <div class="control">
+
+        <button onclick="kirim('AUTO')">
+            AUTO
+        </button>
+
+        <button onclick="kirim('ON')">
+            ON
+        </button>
+
+        <button onclick="kirim('OFF')">
+            OFF
+        </button>
+
+    </div>
+
+</div>
+
+<!-- SOCKET.IO -->
+<script src="/socket.io/socket.io.js"></script>
+
+<!-- SCRIPT WEB -->
+<script src="script.js"></script>
+
+</body>
+</html>
